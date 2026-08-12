@@ -22,7 +22,7 @@ class AuthUserProvider {
     } on AuthException catch (e) {
       return Future.error(e.message);
     } catch (e) {
-      return Future.error('An error occured');
+      return Future.error(e.toString());
     }
   }
 
