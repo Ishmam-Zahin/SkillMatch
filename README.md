@@ -21,8 +21,8 @@ Built with **Flutter**, **Dart**, **BLoC**, and **Supabase**
 
 | | | |
 |---|---|---|
-| ![Screenshot 1](assets/screenshots/1.png) | ![Screenshot 2](assets/screenshots/2.png) | ![Screenshot 3](assets/screenshots/3.png) |
-| ![Screenshot 4](assets/screenshots/4.png) | ![Screenshot 5](assets/screenshots/5.png) | |
+| ![Screenshot 1](assets/screenshots/1.jpg) | ![Screenshot 2](assets/screenshots/2.jpg) | ![Screenshot 3](assets/screenshots/3.jpg) |
+| ![Screenshot 4](assets/screenshots/4.jpg) | ![Screenshot 5](assets/screenshots/5.jpg) | |
 
 </div>
 
