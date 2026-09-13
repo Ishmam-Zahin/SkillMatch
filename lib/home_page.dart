@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:findjob/add_job_page.dart';
-import 'package:findjob/bloc/blocs/add_job_bloc.dart';
-import 'package:findjob/bloc/blocs/delete_job_bloc.dart';
-import 'package:findjob/bloc/blocs/home_page_bloc.dart';
-import 'package:findjob/bloc/blocs/job_list_page_bloc.dart';
-import 'package:findjob/bloc/blocs/job_types_bloc.dart';
-import 'package:findjob/bloc/blocs/search_item_bloc.dart';
-import 'package:findjob/bloc/blocs/user_bloc.dart';
-import 'package:findjob/bloc/events/home_page_events.dart';
-import 'package:findjob/bloc/events/user_event.dart';
+import 'package:skillmatch/add_job_page.dart';
+import 'package:skillmatch/bloc/blocs/add_job_bloc.dart';
+import 'package:skillmatch/bloc/blocs/delete_job_bloc.dart';
+import 'package:skillmatch/bloc/blocs/home_page_bloc.dart';
+import 'package:skillmatch/bloc/blocs/job_list_page_bloc.dart';
+import 'package:skillmatch/bloc/blocs/job_types_bloc.dart';
+import 'package:skillmatch/bloc/blocs/search_item_bloc.dart';
+import 'package:skillmatch/bloc/blocs/user_bloc.dart';
+import 'package:skillmatch/bloc/events/home_page_events.dart';
+import 'package:skillmatch/bloc/events/user_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/states/home_page_states.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
-import 'package:findjob/job_list_page.dart';
-import 'package:findjob/profile_page.dart';
-import 'package:findjob/search_page.dart';
+import 'package:skillmatch/bloc/states/home_page_states.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
+import 'package:skillmatch/job_list_page.dart';
+import 'package:skillmatch/profile_page.dart';
+import 'package:skillmatch/search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

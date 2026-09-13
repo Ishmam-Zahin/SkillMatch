@@ -1,14 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:findjob/bloc/blocs/image_bloc.dart';
-import 'package:findjob/bloc/blocs/user_bloc.dart';
-import 'package:findjob/bloc/events/image_events.dart';
-import 'package:findjob/bloc/events/user_event.dart';
-import 'package:findjob/bloc/states/image_states.dart';
-import 'package:findjob/bloc/states/user_state.dart';
+import 'package:skillmatch/bloc/blocs/image_bloc.dart';
+import 'package:skillmatch/bloc/blocs/user_bloc.dart';
+import 'package:skillmatch/bloc/events/image_events.dart';
+import 'package:skillmatch/bloc/events/user_event.dart';
+import 'package:skillmatch/bloc/states/image_states.dart';
+import 'package:skillmatch/bloc/states/user_state.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skillmatch/widgets/skill_chip_selector.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -25,14 +26,12 @@ class _SignUpPageState extends State<SignUpPage> {
   String? _phone;
   String? _address;
   XFile? _image;
+  List<String> _skills = [];
 
   void _showSnackBar(BuildContext context, String message, Color color) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: color,
-      ),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message), backgroundColor: color));
   }
 
   @override
@@ -47,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               const SizedBox(height: 60),
               const Text(
-                'HireHub',
+                'SkillMatch',
                 style: TextStyle(
                   fontFamily: 'Wet',
                   fontSize: 34,
@@ -58,10 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 60),
               const Text(
                 'Create your account now!',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black87,
-                ),
+                style: TextStyle(fontSize: 18, color: Colors.black87),
               ),
               const SizedBox(height: 20),
               Form(
@@ -139,6 +135,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     const SizedBox(height: 20),
+                    SkillChipSelector(
+                      selectedSkills: _skills,
+                      onChanged: (skills) => setState(() => _skills = skills),
+                      label: 'Choose your skills',
+                    ),
+                    const SizedBox(height: 20),
                     BlocConsumer<AuthUserBloc, UserState>(
                       listener: (context, state) {
                         if (state is AuthenticateUserSate) {
@@ -152,22 +154,26 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: ElevatedButton(
                           onPressed: () {
                             if (_image == null) {
-                              _showSnackBar(context,
-                                  'You must provide an image!', Colors.red);
+                              _showSnackBar(
+                                context,
+                                'You must provide an image!',
+                                Colors.red,
+                              );
                               return;
                             }
                             if (_signUpFormKey.currentState!.validate()) {
                               _signUpFormKey.currentState!.save();
                               context.read<AuthUserBloc>().add(
-                                    CreateUserEvent(
-                                      name: _fullName!,
-                                      email: _email!,
-                                      password: _password!,
-                                      phone: _phone!,
-                                      address: _address!,
-                                      image: _image!,
-                                    ),
-                                  );
+                                CreateUserEvent(
+                                  name: _fullName!,
+                                  email: _email!,
+                                  password: _password!,
+                                  phone: _phone!,
+                                  address: _address!,
+                                  image: _image!,
+                                  skills: _skills,
+                                ),
+                              );
                             }
                           },
                           style: ElevatedButton.styleFrom(

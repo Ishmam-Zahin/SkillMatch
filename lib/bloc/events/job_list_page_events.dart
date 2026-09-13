@@ -3,5 +3,10 @@ class MyJobListPageEvents {}
 class LoadJobListEvent extends MyJobListPageEvents {
   final int typeId;
   final String? userId;
-  LoadJobListEvent({required this.typeId, this.userId});
+  final List<String> userSkills;
+  LoadJobListEvent({
+    required this.typeId,
+    this.userId,
+    this.userSkills = const [],
+  });
 }

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/events/job_detail_events.dart';
-import 'package:findjob/bloc/states/job_detail_states.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
+import 'package:skillmatch/bloc/events/job_detail_events.dart';
+import 'package:skillmatch/bloc/states/job_detail_states.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
 
 class JobDetailBloc extends Bloc<MyJobDetailEvents, MyJobDetailStates> {
   final HomePageRepository homePageRepository;

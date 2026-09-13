@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/auth_wrapper.dart';
-import 'package:findjob/bloc/blocs/user_bloc.dart';
-import 'package:findjob/data/providers/add_job_provider.dart';
-import 'package:findjob/data/providers/auth_user_provider.dart';
-import 'package:findjob/data/providers/delete_job_provider.dart';
-import 'package:findjob/data/providers/image_provider.dart';
-import 'package:findjob/data/providers/job_comments_provider.dart';
-import 'package:findjob/data/providers/job_detail_provider.dart';
-import 'package:findjob/data/providers/job_isActive_provider.dart';
-import 'package:findjob/data/providers/job_list_provider.dart';
-import 'package:findjob/data/providers/job_types_provider.dart';
-import 'package:findjob/data/providers/search_provider.dart';
-import 'package:findjob/data/providers/send_mail_provider.dart';
-import 'package:findjob/data/repository/auth_user_repository.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
+import 'package:skillmatch/auth_wrapper.dart';
+import 'package:skillmatch/bloc/blocs/user_bloc.dart';
+import 'package:skillmatch/data/providers/add_job_provider.dart';
+import 'package:skillmatch/data/providers/auth_user_provider.dart';
+import 'package:skillmatch/data/providers/delete_job_provider.dart';
+import 'package:skillmatch/data/providers/image_provider.dart';
+import 'package:skillmatch/data/providers/job_comments_provider.dart';
+import 'package:skillmatch/data/providers/job_detail_provider.dart';
+import 'package:skillmatch/data/providers/job_isActive_provider.dart';
+import 'package:skillmatch/data/providers/job_list_provider.dart';
+import 'package:skillmatch/data/providers/job_types_provider.dart';
+import 'package:skillmatch/data/providers/search_provider.dart';
+import 'package:skillmatch/data/providers/send_mail_provider.dart';
+import 'package:skillmatch/data/repository/auth_user_repository.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -59,22 +59,22 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             lazy: false,
-            create: (context) => AuthUserBloc(
-              context.read<AuthUserRepository>(),
-            ),
+            create: (context) =>
+                AuthUserBloc(context.read<AuthUserRepository>()),
           ),
         ],
         child: GetMaterialApp(
-          title: 'Freelance App',
+          title: 'SkillMatch',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-              useMaterial3: true,
-              fontFamily: 'Lato',
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: const Color.fromARGB(255, 6, 0, 167),
-              ),
-              scaffoldBackgroundColor: const Color.fromARGB(255, 238, 238, 238),
-              inputDecorationTheme: const InputDecorationTheme()),
+            useMaterial3: true,
+            fontFamily: 'Lato',
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 6, 0, 167),
+            ),
+            scaffoldBackgroundColor: const Color.fromARGB(255, 238, 238, 238),
+            inputDecorationTheme: const InputDecorationTheme(),
+          ),
           home: const AuthWrapper(),
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/events/send_mail_events.dart';
-import 'package:findjob/bloc/states/send_mail_states.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
+import 'package:skillmatch/bloc/events/send_mail_events.dart';
+import 'package:skillmatch/bloc/states/send_mail_states.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
 
 class SendMailBloc extends Bloc<MySendMailEvents, MySendMailStates> {
   final HomePageRepository homePageRepository;

@@ -1,4 +1,4 @@
-package com.example.findjob
+package com.example.skillmatch
 
 import io.flutter.embedding.android.FlutterActivity
 

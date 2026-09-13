@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/events/change_job_isactive_events.dart';
-import 'package:findjob/bloc/states/change_job_isActive_states.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
+import 'package:skillmatch/bloc/events/change_job_isactive_events.dart';
+import 'package:skillmatch/bloc/states/change_job_isActive_states.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
 
 class ChangeJobIsActiveBloc
     extends Bloc<MyChangeJobIsActiveEvent, MyChangeJobIsActiveState> {

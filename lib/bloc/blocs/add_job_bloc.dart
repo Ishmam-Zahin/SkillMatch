@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/events/add_job_events.dart';
-import 'package:findjob/bloc/states/add_job_states.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
+import 'package:skillmatch/bloc/events/add_job_events.dart';
+import 'package:skillmatch/bloc/states/add_job_states.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
 
 class AddJobBloc extends Bloc<MyAddJobEvents, MyAddJobStates> {
   final HomePageRepository homePageRepository;
@@ -15,14 +15,11 @@ class AddJobBloc extends Bloc<MyAddJobEvents, MyAddJobStates> {
           deadlineDate: event.deadlineDate,
           userId: event.userId,
           typeId: event.typeId,
+          requiredSkills: event.requiredSkills,
         );
         emit(AddJobLoadedState(message: 'Job Uploaded Successfully!'));
       } catch (e) {
-        emit(
-          AddJobErrorState(
-            error: e.toString(),
-          ),
-        );
+        emit(AddJobErrorState(error: e.toString()));
       }
     });
   }

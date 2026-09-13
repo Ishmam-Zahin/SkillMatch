@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/blocs/image_bloc.dart';
-import 'package:findjob/bloc/blocs/user_bloc.dart';
-import 'package:findjob/bloc/events/user_event.dart';
-import 'package:findjob/bloc/states/user_state.dart';
-import 'package:findjob/data/repository/auth_user_repository.dart';
-import 'package:findjob/signup_page.dart';
+import 'package:skillmatch/bloc/blocs/image_bloc.dart';
+import 'package:skillmatch/bloc/blocs/user_bloc.dart';
+import 'package:skillmatch/bloc/events/user_event.dart';
+import 'package:skillmatch/bloc/states/user_state.dart';
+import 'package:skillmatch/data/repository/auth_user_repository.dart';
+import 'package:skillmatch/signup_page.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,12 +21,9 @@ class _LoginPageState extends State<LoginPage> {
   String _password = '';
 
   void _showErrorSnackBar(BuildContext context, String message, Color color) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: color,
-      ),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message), backgroundColor: color));
   }
 
   @override
@@ -40,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'HireHub',
+                'SkillMatch',
                 style: TextStyle(
                   fontFamily: 'Wet',
                   fontSize: 40,
@@ -66,8 +63,10 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: 'Enter your email address',
-                        prefixIcon:
-                            const Icon(Icons.email, color: Colors.blueAccent),
+                        prefixIcon: const Icon(
+                          Icons.email,
+                          color: Colors.blueAccent,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
@@ -88,8 +87,10 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: true,
                       decoration: InputDecoration(
                         hintText: 'Enter your password',
-                        prefixIcon:
-                            const Icon(Icons.lock, color: Colors.blueAccent),
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Colors.blueAccent,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
@@ -116,7 +117,10 @@ class _LoginPageState extends State<LoginPage> {
                         }
                         if (state is AuthenticateUserSate) {
                           _showErrorSnackBar(
-                              context, 'Login Successful!', Colors.green);
+                            context,
+                            'Login Successful!',
+                            Colors.green,
+                          );
                         }
                       },
                       builder: (context, state) {
@@ -126,9 +130,9 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {
                               if (_loginFormKey.currentState!.validate()) {
                                 _loginFormKey.currentState!.save();
-                                context
-                                    .read<AuthUserBloc>()
-                                    .add(LoginEvent(_email, _password));
+                                context.read<AuthUserBloc>().add(
+                                  LoginEvent(_email, _password),
+                                );
                               }
                             },
                             style: ElevatedButton.styleFrom(
@@ -140,7 +144,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             child: state is LoadingUserSate
                                 ? const CircularProgressIndicator(
-                                    color: Colors.white)
+                                    color: Colors.white,
+                                  )
                                 : const Text(
                                     'LOG IN',
                                     style: TextStyle(

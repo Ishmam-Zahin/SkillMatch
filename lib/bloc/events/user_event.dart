@@ -17,12 +17,21 @@ final class CreateUserEvent extends UserEvent {
   final String phone;
   final String address;
   final XFile image;
+  final List<String> skills;
 
-  CreateUserEvent(
-      {required this.name,
-      required this.email,
-      required this.password,
-      required this.phone,
-      required this.address,
-      required this.image});
+  CreateUserEvent({
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
+    required this.address,
+    required this.image,
+    required this.skills,
+  });
+}
+
+final class UpdateUserSkillsEvent extends UserEvent {
+  final List<String> skills;
+
+  UpdateUserSkillsEvent({required this.skills});
 }

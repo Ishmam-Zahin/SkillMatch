@@ -1,4 +1,4 @@
-import 'package:findjob/data/model/job_comments_model.dart';
+import 'package:skillmatch/data/model/job_comments_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MyJobCommentsProvider {

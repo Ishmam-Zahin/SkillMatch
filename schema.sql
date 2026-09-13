@@ -11,6 +11,7 @@ CREATE TABLE jobs(
   upload_date date default current_date,
   deadline_date date not null,
   dsc text not null,
+  required_skills text[] not null default '{}',
   total_applicant int default 0,
   active boolean default true,
   foreign key (user_id) references auth.users(id) on delete cascade,
@@ -36,7 +37,7 @@ create table job_applicant(
 );
 
 create view get_job_list as
-select A.id, A.user_id, A.active, C.id as type_id, C.type_name, A.title, A.dsc, A.deadline_date, B.raw_user_meta_data->'name' as user_name, B.raw_user_meta_data->'image_url' as user_image_url
+select A.id, A.user_id, A.active, C.id as type_id, C.type_name, A.title, A.dsc, A.deadline_date, A.required_skills, B.raw_user_meta_data->'name' as user_name, B.raw_user_meta_data->'image_url' as user_image_url
 from (jobs as A join auth.users as B on A.user_id = B.id) join job_types as C on A.type_id = C.id;
 
 create view search_users as
@@ -58,6 +59,7 @@ RETURNS TABLE(
     name text,
     address text,
     user_email varchar
+    ,required_skills text[]
 ) AS
 $$
 BEGIN
@@ -76,9 +78,66 @@ BEGIN
         u.raw_user_meta_data->>'name' as name,
         u.raw_user_meta_data->>'address' as address,
         u.email as user_email
+        ,j.required_skills
     FROM jobs AS j
     JOIN auth.users AS u ON j.user_id = u.id
     WHERE j.id = j_id;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Migration for an existing Supabase project:
+-- run this block in the Supabase SQL Editor before using skill matching.
+alter table jobs
+  add column if not exists required_skills text[] not null default '{}';
+
+create or replace view get_job_list as
+select A.id, A.user_id, A.active, C.id as type_id, C.type_name, A.title,
+     A.dsc, A.deadline_date, A.required_skills,
+     B.raw_user_meta_data->'name' as user_name,
+     B.raw_user_meta_data->'image_url' as user_image_url
+from (jobs as A join auth.users as B on A.user_id = B.id)
+join job_types as C on A.type_id = C.id;
+
+drop function if exists get_job_detail(int);
+
+create function get_job_detail(j_id int)
+returns table(
+  id bigint,
+  user_id uuid,
+  type_id int,
+  title varchar,
+  upload_date date,
+  deadline_date date,
+  description text,
+  total_applicant int,
+  active boolean,
+  user_image text,
+  name text,
+  address text,
+  user_email varchar,
+  required_skills text[]
+) AS
+$$
+BEGIN
+  RETURN QUERY
+  SELECT
+    j.id,
+    j.user_id,
+    j.type_id,
+    j.title,
+    j.upload_date,
+    j.deadline_date,
+    j.dsc AS description,
+    j.total_applicant,
+    j.active,
+    u.raw_user_meta_data->>'image_url' AS user_image,
+    u.raw_user_meta_data->>'name' as name,
+    u.raw_user_meta_data->>'address' as address,
+    u.email as user_email,
+    j.required_skills
+  FROM jobs AS j
+  JOIN auth.users AS u ON j.user_id = u.id
+  WHERE j.id = j_id;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 

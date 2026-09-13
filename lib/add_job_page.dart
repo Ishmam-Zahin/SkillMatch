@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/blocs/add_job_bloc.dart';
-import 'package:findjob/bloc/blocs/job_types_bloc.dart';
-import 'package:findjob/bloc/blocs/user_bloc.dart';
-import 'package:findjob/bloc/events/add_job_events.dart';
-import 'package:findjob/bloc/events/job_types_events.dart';
-import 'package:findjob/bloc/states/add_job_states.dart';
-import 'package:findjob/bloc/states/job_types_states.dart';
-import 'package:findjob/bloc/states/user_state.dart';
+import 'package:skillmatch/bloc/blocs/add_job_bloc.dart';
+import 'package:skillmatch/bloc/blocs/job_types_bloc.dart';
+import 'package:skillmatch/bloc/blocs/user_bloc.dart';
+import 'package:skillmatch/bloc/events/add_job_events.dart';
+import 'package:skillmatch/bloc/events/job_types_events.dart';
+import 'package:skillmatch/bloc/states/add_job_states.dart';
+import 'package:skillmatch/bloc/states/job_types_states.dart';
+import 'package:skillmatch/bloc/states/user_state.dart';
+import 'package:skillmatch/widgets/skill_chip_selector.dart';
 
 class AddJobPage extends StatefulWidget {
   const AddJobPage({super.key});
@@ -22,15 +23,13 @@ class _AddJobPageState extends State<AddJobPage> {
   String? _dsc;
   String? _deadlineDate;
   int? _typeId;
+  List<String> _requiredSkills = [];
   final TextEditingController _dateControler = TextEditingController();
 
   void _showSnackBar(BuildContext context, String message, Color color) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: color,
-      ),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message), backgroundColor: color));
   }
 
   @override
@@ -45,13 +44,10 @@ class _AddJobPageState extends State<AddJobPage> {
       appBar: AppBar(
         title: Row(
           children: [
-            Image.asset(
-              'assets/images/logo.png',
-              height: 40,
-            ),
+            Image.asset('assets/images/logo.png', height: 40),
             const SizedBox(width: 10),
             const Text(
-              'HireHub',
+              'SkillMatch',
               style: TextStyle(
                 fontFamily: 'Wet', // Replace with the login page font family
                 fontSize: 28,
@@ -76,10 +72,7 @@ class _AddJobPageState extends State<AddJobPage> {
                 const Center(
                   child: Text(
                     'Upload A New Work',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -141,6 +134,13 @@ class _AddJobPageState extends State<AddJobPage> {
                   onSaved: (value) {
                     _title = value;
                   },
+                ),
+                const SizedBox(height: 20),
+                SkillChipSelector(
+                  selectedSkills: _requiredSkills,
+                  onChanged: (skills) =>
+                      setState(() => _requiredSkills = skills),
+                  label: 'Skills required for this job',
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
@@ -209,13 +209,10 @@ class _AddJobPageState extends State<AddJobPage> {
                         Colors.green,
                       );
                       _formKey.currentState!.reset();
+                      setState(() => _requiredSkills = []);
                     }
                     if (state is AddJobErrorState) {
-                      _showSnackBar(
-                        context,
-                        state.error,
-                        Colors.red,
-                      );
+                      _showSnackBar(context, state.error, Colors.red);
                     }
                   },
                   builder: (context, state) {
@@ -230,20 +227,21 @@ class _AddJobPageState extends State<AddJobPage> {
                             ? () {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
-                                  final AuthenticateUserSate userState = context
-                                      .read<AuthUserBloc>()
-                                      .state as AuthenticateUserSate;
+                                  final AuthenticateUserSate userState =
+                                      context.read<AuthUserBloc>().state
+                                          as AuthenticateUserSate;
                                   final String userId =
                                       userState.myAuthUser.userId;
                                   context.read<AddJobBloc>().add(
-                                        UploadJobEvent(
-                                          title: _title!,
-                                          dsc: _dsc!,
-                                          deadlineDate: _deadlineDate!,
-                                          userId: userId,
-                                          typeId: _typeId!,
-                                        ),
-                                      );
+                                    UploadJobEvent(
+                                      title: _title!,
+                                      dsc: _dsc!,
+                                      deadlineDate: _deadlineDate!,
+                                      userId: userId,
+                                      typeId: _typeId!,
+                                      requiredSkills: _requiredSkills,
+                                    ),
+                                  );
                                 }
                               }
                             : null,

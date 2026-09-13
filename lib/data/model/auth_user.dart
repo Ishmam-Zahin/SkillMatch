@@ -5,6 +5,7 @@ class MyAuthUser {
   final String address;
   final String mail;
   final String imageUrl;
+  final List<String> skills;
 
   MyAuthUser({
     required this.userId,
@@ -13,5 +14,6 @@ class MyAuthUser {
     required this.address,
     required this.phone,
     required this.imageUrl,
+    required this.skills,
   });
 }

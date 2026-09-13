@@ -7,6 +7,7 @@ class MyAddJobprovider {
     required String deadlineDate,
     required String userId,
     required int typeId,
+    required List<String> requiredSkills,
   }) async {
     try {
       await Supabase.instance.client.from('jobs').insert({
@@ -15,6 +16,7 @@ class MyAddJobprovider {
         'dsc': dsc,
         'user_id': userId,
         'type_id': typeId,
+        'required_skills': requiredSkills,
       });
     } catch (e) {
       return Future.error(e.toString());

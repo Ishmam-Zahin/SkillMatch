@@ -1,4 +1,4 @@
-import 'package:findjob/data/model/job_detail_model.dart';
+import 'package:skillmatch/data/model/job_detail_model.dart';
 
 class MyJobDetailStates {}
 

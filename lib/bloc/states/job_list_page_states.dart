@@ -1,4 +1,4 @@
-import 'package:findjob/data/model/job_list_model.dart';
+import 'package:skillmatch/data/model/job_list_model.dart';
 
 class MyJobListPageStates {}
 

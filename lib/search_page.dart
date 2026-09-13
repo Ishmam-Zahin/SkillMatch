@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:findjob/bloc/blocs/job_list_page_bloc.dart';
-import 'package:findjob/bloc/blocs/search_item_bloc.dart';
-import 'package:findjob/bloc/events/search_item_events.dart';
-import 'package:findjob/bloc/states/search_item_states.dart';
-import 'package:findjob/data/repository/home_page_repository.dart';
-import 'package:findjob/other_profile_page.dart';
+import 'package:skillmatch/bloc/blocs/job_list_page_bloc.dart';
+import 'package:skillmatch/bloc/blocs/search_item_bloc.dart';
+import 'package:skillmatch/bloc/events/search_item_events.dart';
+import 'package:skillmatch/bloc/states/search_item_states.dart';
+import 'package:skillmatch/data/repository/home_page_repository.dart';
+import 'package:skillmatch/other_profile_page.dart';
 import 'package:get/get.dart';
 
 class SearchPage extends StatefulWidget {
@@ -20,12 +20,9 @@ class _SearchPageState extends State<SearchPage> {
   String? _searchWord;
 
   void _showErrorSnackBar(BuildContext context, String message, Color color) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: color,
-      ),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message), backgroundColor: color));
   }
 
   @override
@@ -34,13 +31,10 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         title: Row(
           children: [
-            Image.asset(
-              'assets/images/logo.png',
-              height: 40,
-            ),
+            Image.asset('assets/images/logo.png', height: 40),
             const SizedBox(width: 10),
             const Text(
-              'HireHub',
+              'SkillMatch',
               style: TextStyle(
                 fontFamily: 'Wet', // Replace with the login page font family
                 fontSize: 28,
@@ -59,10 +53,7 @@ class _SearchPageState extends State<SearchPage> {
           }
         },
         builder: (context, state) => Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 10,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -72,9 +63,7 @@ class _SearchPageState extends State<SearchPage> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                     hintText: 'Enter the company name',
-                    prefixIcon: Icon(
-                      Icons.search,
-                    ),
+                    prefixIcon: Icon(Icons.search),
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(),
                     enabledBorder: OutlineInputBorder(),
@@ -100,34 +89,30 @@ class _SearchPageState extends State<SearchPage> {
                     if (_searchFormKey.currentState!.validate()) {
                       _searchFormKey.currentState!.save();
                       context.read<SearchItemBloc>().add(
-                            SearchItemEvent(name: _searchWord!),
-                          );
+                        SearchItemEvent(name: _searchWord!),
+                      );
                     }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
+                      horizontal: 15,
+                      vertical: 10,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: const Text(
                     'Search',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 22),
                   ),
                 ),
               ),
               const SizedBox(height: 20),
               const Text(
                 'Searched Items:',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               // Search Results
               state is SearchItemInitialState
@@ -153,8 +138,9 @@ class _SearchPageState extends State<SearchPage> {
                                         child: Card(
                                           elevation: 4,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(12),
+                                            borderRadius: BorderRadius.circular(
+                                              12,
+                                            ),
                                           ),
                                           child: ListTile(
                                             contentPadding:
@@ -167,22 +153,21 @@ class _SearchPageState extends State<SearchPage> {
                                                 width: 60,
                                                 height: 60,
                                                 fit: BoxFit.cover,
-                                                loadingBuilder: (context, child,
-                                                    loadingProgress) {
+                                                loadingBuilder: (context, child, loadingProgress) {
                                                   if (loadingProgress == null) {
                                                     return child;
                                                   }
                                                   return Center(
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      value: loadingProgress
+                                                    child: CircularProgressIndicator(
+                                                      value:
+                                                          loadingProgress
                                                                   .expectedTotalBytes !=
                                                               null
                                                           ? loadingProgress
-                                                                  .cumulativeBytesLoaded /
-                                                              (loadingProgress
-                                                                      .expectedTotalBytes ??
-                                                                  1)
+                                                                    .cumulativeBytesLoaded /
+                                                                (loadingProgress
+                                                                        .expectedTotalBytes ??
+                                                                    1)
                                                           : null,
                                                     ),
                                                   );
@@ -205,20 +190,24 @@ class _SearchPageState extends State<SearchPage> {
                                             ),
                                             trailing: TextButton(
                                               onPressed: () {
-                                                Get.to(MultiBlocProvider(
-                                                  providers: [
-                                                    BlocProvider(
-                                                      create: (context) =>
-                                                          JobListPageBloc(
-                                                        context.read<
-                                                            HomePageRepository>(),
+                                                Get.to(
+                                                  MultiBlocProvider(
+                                                    providers: [
+                                                      BlocProvider(
+                                                        create: (context) =>
+                                                            JobListPageBloc(
+                                                              context
+                                                                  .read<
+                                                                    HomePageRepository
+                                                                  >(),
+                                                            ),
                                                       ),
+                                                    ],
+                                                    child: OtherProfilePage(
+                                                      userData: company,
                                                     ),
-                                                  ],
-                                                  child: OtherProfilePage(
-                                                    userData: company,
                                                   ),
-                                                ));
+                                                );
                                               },
                                               style: TextButton.styleFrom(
                                                 foregroundColor: Colors.blue,

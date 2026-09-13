@@ -1,4 +1,4 @@
-import 'package:findjob/data/model/auth_user.dart';
+import 'package:skillmatch/data/model/auth_user.dart';
 
 class UserState {}
 
