@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:skillmatch/add_job_page.dart';
-import 'package:skillmatch/bloc/blocs/add_job_bloc.dart';
-import 'package:skillmatch/bloc/blocs/delete_job_bloc.dart';
-import 'package:skillmatch/bloc/blocs/home_page_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_list_page_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_types_bloc.dart';
-import 'package:skillmatch/bloc/blocs/search_item_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/events/home_page_events.dart';
-import 'package:skillmatch/bloc/events/user_event.dart';
+import 'package:worklance/add_job_page.dart';
+import 'package:worklance/bloc/blocs/add_job_bloc.dart';
+import 'package:worklance/bloc/blocs/delete_job_bloc.dart';
+import 'package:worklance/bloc/blocs/home_page_bloc.dart';
+import 'package:worklance/bloc/blocs/job_list_page_bloc.dart';
+import 'package:worklance/bloc/blocs/job_types_bloc.dart';
+import 'package:worklance/bloc/blocs/search_item_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/events/home_page_events.dart';
+import 'package:worklance/bloc/events/user_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/states/home_page_states.dart';
-import 'package:skillmatch/data/repository/home_page_repository.dart';
-import 'package:skillmatch/job_list_page.dart';
-import 'package:skillmatch/profile_page.dart';
-import 'package:skillmatch/search_page.dart';
+import 'package:worklance/bloc/states/home_page_states.dart';
+import 'package:worklance/data/repository/home_page_repository.dart';
+import 'package:worklance/job_list_page.dart';
+import 'package:worklance/profile_page.dart';
+import 'package:worklance/search_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,14 +35,12 @@ class _HomePageState extends State<HomePage> {
             return MultiBlocProvider(
               providers: [
                 BlocProvider(
-                  create: (context) => JobListPageBloc(
-                    context.read<HomePageRepository>(),
-                  ),
+                  create: (context) =>
+                      JobListPageBloc(context.read<HomePageRepository>()),
                 ),
                 BlocProvider(
-                  create: (context) => DeleteJobBloc(
-                    context.read<HomePageRepository>(),
-                  ),
+                  create: (context) =>
+                      DeleteJobBloc(context.read<HomePageRepository>()),
                 ),
               ],
               child: const ProfilePage(),
@@ -80,9 +78,8 @@ class _HomePageState extends State<HomePage> {
           return MultiBlocProvider(
             providers: [
               BlocProvider(
-                create: (context) => JobListPageBloc(
-                  context.read<HomePageRepository>(),
-                ),
+                create: (context) =>
+                    JobListPageBloc(context.read<HomePageRepository>()),
               ),
               BlocProvider(
                 create: (context) => JobTypesBloc(

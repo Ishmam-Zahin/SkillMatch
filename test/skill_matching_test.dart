@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:skillmatch/data/model/skill_matching.dart';
+import 'package:worklance/data/model/skill_matching.dart';
 
 void main() {
   test('normalizes missing, blank, and duplicate skills', () {

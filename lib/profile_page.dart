@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:skillmatch/bloc/blocs/change_job_isactive_bloc.dart';
-import 'package:skillmatch/bloc/blocs/delete_job_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_comment_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_detail_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_list_page_bloc.dart';
-import 'package:skillmatch/bloc/blocs/post_job_comment_bloc.dart';
-import 'package:skillmatch/bloc/blocs/send_mail_bloc.dart';
-import 'package:skillmatch/bloc/blocs/send_mail_validity_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/events/delete_job_events.dart';
-import 'package:skillmatch/bloc/events/job_list_page_events.dart';
-import 'package:skillmatch/bloc/events/user_event.dart';
+import 'package:worklance/bloc/blocs/change_job_isactive_bloc.dart';
+import 'package:worklance/bloc/blocs/delete_job_bloc.dart';
+import 'package:worklance/bloc/blocs/job_comment_bloc.dart';
+import 'package:worklance/bloc/blocs/job_detail_bloc.dart';
+import 'package:worklance/bloc/blocs/job_list_page_bloc.dart';
+import 'package:worklance/bloc/blocs/post_job_comment_bloc.dart';
+import 'package:worklance/bloc/blocs/send_mail_bloc.dart';
+import 'package:worklance/bloc/blocs/send_mail_validity_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/events/delete_job_events.dart';
+import 'package:worklance/bloc/events/job_list_page_events.dart';
+import 'package:worklance/bloc/events/user_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/states/delete_job_states.dart';
-import 'package:skillmatch/bloc/states/job_list_page_states.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
-import 'package:skillmatch/data/repository/home_page_repository.dart';
-import 'package:skillmatch/job_details_page.dart';
-import 'package:skillmatch/widgets/skill_chip_selector.dart';
+import 'package:worklance/bloc/states/delete_job_states.dart';
+import 'package:worklance/bloc/states/job_list_page_states.dart';
+import 'package:worklance/bloc/states/user_state.dart';
+import 'package:worklance/data/repository/home_page_repository.dart';
+import 'package:worklance/job_details_page.dart';
+import 'package:worklance/widgets/skill_chip_selector.dart';
 import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -102,7 +102,7 @@ class ProfilePage extends StatelessWidget {
               Image.asset('assets/images/logo.png', height: 40),
               const SizedBox(width: 10),
               const Text(
-                'SkillMatch',
+                'Worklance',
                 style: TextStyle(
                   fontFamily: 'Wet', // Replace with the login page font family
                   fontSize: 28,

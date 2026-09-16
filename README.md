@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎯 SkillMatch
+# 🎯 Worklance
 
 ### A Freelance Job Marketplace with Smart Skill Matching
 
@@ -19,10 +19,10 @@ Built with **Flutter**, **Dart**, **BLoC**, and **Supabase**
 
 <div align="center">
 
-| | | |
-|---|---|---|
+|                                           |                                           |                                           |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | ![Screenshot 1](assets/screenshots/1.jpg) | ![Screenshot 2](assets/screenshots/2.jpg) | ![Screenshot 3](assets/screenshots/3.jpg) |
-| ![Screenshot 4](assets/screenshots/4.jpg) | ![Screenshot 5](assets/screenshots/5.jpg) | |
+| ![Screenshot 4](assets/screenshots/4.jpg) | ![Screenshot 5](assets/screenshots/5.jpg) |                                           |
 
 </div>
 
@@ -30,9 +30,9 @@ Built with **Flutter**, **Dart**, **BLoC**, and **Supabase**
 
 ## ✨ Overview
 
-**SkillMatch** is a full-featured freelance job marketplace that connects clients with skilled professionals. Users can create accounts, post work opportunities, browse and filter jobs, communicate through comments, and manage their listings — all wrapped around a **skill-based job matching system** that ranks opportunities by relevance instead of showing a flat, unsorted list.
+**Worklance** is a full-featured freelance job marketplace that connects clients with skilled professionals. Users can create accounts, post work opportunities, browse and filter jobs, communicate through comments, and manage their listings — all wrapped around a **skill-based job matching system** that ranks opportunities by relevance instead of showing a flat, unsorted list.
 
-Unlike a typical CRUD job board, SkillMatch computes the overlap between a user's skills and a job's requirements directly in **PostgreSQL**, using set-based SQL functions — surfacing the most relevant jobs first.
+Unlike a typical CRUD job board, Worklance computes the overlap between a user's skills and a job's requirements directly in **PostgreSQL**, using set-based SQL functions — surfacing the most relevant jobs first.
 
 ---
 
@@ -51,13 +51,13 @@ Unlike a typical CRUD job board, SkillMatch computes the overlap between a user'
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | Flutter, Dart |
-| **State Management** | BLoC |
-| **Backend / Database** | Supabase (PostgreSQL) |
-| **Auth** | Supabase Auth (Email-based) |
-| **UI** | Material Design |
+| Layer                  | Technology                  |
+| ---------------------- | --------------------------- |
+| **Frontend**           | Flutter, Dart               |
+| **State Management**   | BLoC                        |
+| **Backend / Database** | Supabase (PostgreSQL)       |
+| **Auth**               | Supabase Auth (Email-based) |
+| **UI**                 | Material Design             |
 
 ---
 

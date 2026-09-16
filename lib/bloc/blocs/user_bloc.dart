@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/events/user_event.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
-import 'package:skillmatch/data/repository/auth_user_repository.dart';
+import 'package:worklance/bloc/events/user_event.dart';
+import 'package:worklance/bloc/states/user_state.dart';
+import 'package:worklance/data/repository/auth_user_repository.dart';
 
 class AuthUserBloc extends Bloc<UserEvent, UserState> {
   final AuthUserRepository _authUserRepository;

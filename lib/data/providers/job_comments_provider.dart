@@ -1,15 +1,11 @@
-import 'package:skillmatch/data/model/job_comments_model.dart';
+import 'package:worklance/data/model/job_comments_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MyJobCommentsProvider {
-  Future<MyJobCommentsModel> getCommets({
-    required int jobId,
-  }) async {
+  Future<MyJobCommentsModel> getCommets({required int jobId}) async {
     try {
-      final List<Map<String, dynamic>> response =
-          await Supabase.instance.client.rpc('get_comments', params: {
-        'jobid': jobId,
-      });
+      final List<Map<String, dynamic>> response = await Supabase.instance.client
+          .rpc('get_comments', params: {'jobid': jobId});
 
       return MyJobCommentsModel(comments: response);
     } catch (e) {

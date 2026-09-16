@@ -1,5 +1,5 @@
-import 'package:skillmatch/data/model/job_detail_model.dart';
-import 'package:skillmatch/data/model/skill_matching.dart';
+import 'package:worklance/data/model/job_detail_model.dart';
+import 'package:worklance/data/model/skill_matching.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MyJobDetailProvider {

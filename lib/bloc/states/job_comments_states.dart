@@ -1,4 +1,4 @@
-import 'package:skillmatch/data/model/job_comments_model.dart';
+import 'package:worklance/data/model/job_comments_model.dart';
 
 class MyJobCommentsStates {}
 
@@ -9,17 +9,13 @@ class JobCommentsLoadingState extends MyJobCommentsStates {}
 class JobCommentsLoadedState extends MyJobCommentsStates {
   final MyJobCommentsModel comments;
 
-  JobCommentsLoadedState({
-    required this.comments,
-  });
+  JobCommentsLoadedState({required this.comments});
 }
 
 class JobCommentsErrorState extends MyJobCommentsStates {
   final String error;
 
-  JobCommentsErrorState({
-    required this.error,
-  });
+  JobCommentsErrorState({required this.error});
 }
 
 class PostJobCommentInitialState extends MyJobCommentsStates {}
@@ -31,7 +27,5 @@ class PostJobCommentLoadedState extends MyJobCommentsStates {}
 class PostJobCommentErrorState extends MyJobCommentsStates {
   final String error;
 
-  PostJobCommentErrorState({
-    required this.error,
-  });
+  PostJobCommentErrorState({required this.error});
 }

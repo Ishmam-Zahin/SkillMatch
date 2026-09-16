@@ -1,4 +1,4 @@
-name: skillmatch
+name: worklance
 description: "A freelance job marketplace for discovering opportunities and connecting with skilled professionals."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.

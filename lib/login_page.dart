@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/blocs/image_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/events/user_event.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
-import 'package:skillmatch/data/repository/auth_user_repository.dart';
-import 'package:skillmatch/signup_page.dart';
+import 'package:worklance/bloc/blocs/image_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/events/user_event.dart';
+import 'package:worklance/bloc/states/user_state.dart';
+import 'package:worklance/data/repository/auth_user_repository.dart';
+import 'package:worklance/signup_page.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'SkillMatch',
+                'Worklance',
                 style: TextStyle(
                   fontFamily: 'Wet',
                   fontSize: 40,

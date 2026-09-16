@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/events/image_events.dart';
-import 'package:skillmatch/bloc/states/image_states.dart';
-import 'package:skillmatch/data/repository/auth_user_repository.dart';
+import 'package:worklance/bloc/events/image_events.dart';
+import 'package:worklance/bloc/states/image_states.dart';
+import 'package:worklance/data/repository/auth_user_repository.dart';
 
 class MyImageBloc extends Bloc<MyImageEvents, MyImageStates> {
   final AuthUserRepository _authUserRepository;

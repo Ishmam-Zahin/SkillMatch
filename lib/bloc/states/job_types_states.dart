@@ -1,4 +1,4 @@
-import 'package:skillmatch/data/model/jobs_types_model.dart';
+import 'package:worklance/data/model/jobs_types_model.dart';
 
 class MyJobTypesStates {}
 
@@ -8,15 +8,11 @@ class JobTypesInitialState extends MyJobTypesStates {}
 
 class JobTypesLoadedState extends MyJobTypesStates {
   final MyjobTypesModel myjobTypesModel;
-  JobTypesLoadedState({
-    required this.myjobTypesModel,
-  });
+  JobTypesLoadedState({required this.myjobTypesModel});
 }
 
 class JobTypesErrorState extends MyJobTypesStates {
   final String error;
 
-  JobTypesErrorState({
-    required this.error,
-  });
+  JobTypesErrorState({required this.error});
 }

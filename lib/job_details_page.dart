@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/blocs/change_job_isactive_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_comment_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_detail_bloc.dart';
-import 'package:skillmatch/bloc/blocs/post_job_comment_bloc.dart';
-import 'package:skillmatch/bloc/blocs/send_mail_bloc.dart';
-import 'package:skillmatch/bloc/blocs/send_mail_validity_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/events/change_job_isactive_events.dart';
-import 'package:skillmatch/bloc/events/job_comments_events.dart';
-import 'package:skillmatch/bloc/events/job_detail_events.dart';
-import 'package:skillmatch/bloc/events/send_mail_events.dart';
-import 'package:skillmatch/bloc/states/change_job_isActive_states.dart';
-import 'package:skillmatch/bloc/states/job_comments_states.dart';
-import 'package:skillmatch/bloc/states/job_detail_states.dart';
-import 'package:skillmatch/bloc/states/send_mail_states.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
-import 'package:skillmatch/data/model/skill_matching.dart';
+import 'package:worklance/bloc/blocs/change_job_isactive_bloc.dart';
+import 'package:worklance/bloc/blocs/job_comment_bloc.dart';
+import 'package:worklance/bloc/blocs/job_detail_bloc.dart';
+import 'package:worklance/bloc/blocs/post_job_comment_bloc.dart';
+import 'package:worklance/bloc/blocs/send_mail_bloc.dart';
+import 'package:worklance/bloc/blocs/send_mail_validity_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/events/change_job_isactive_events.dart';
+import 'package:worklance/bloc/events/job_comments_events.dart';
+import 'package:worklance/bloc/events/job_detail_events.dart';
+import 'package:worklance/bloc/events/send_mail_events.dart';
+import 'package:worklance/bloc/states/change_job_isActive_states.dart';
+import 'package:worklance/bloc/states/job_comments_states.dart';
+import 'package:worklance/bloc/states/job_detail_states.dart';
+import 'package:worklance/bloc/states/send_mail_states.dart';
+import 'package:worklance/bloc/states/user_state.dart';
+import 'package:worklance/data/model/skill_matching.dart';
 
 class JobDetailsPage extends StatefulWidget {
   final int jobId;
@@ -49,7 +49,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
             Image.asset('assets/images/logo.png', height: 40),
             const SizedBox(width: 10),
             const Text(
-              'SkillMatch',
+              'Worklance',
               style: TextStyle(
                 fontFamily: 'Wet', // Replace with the login page font family
                 fontSize: 28,

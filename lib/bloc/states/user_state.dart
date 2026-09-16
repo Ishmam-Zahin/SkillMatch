@@ -1,4 +1,4 @@
-import 'package:skillmatch/data/model/auth_user.dart';
+import 'package:worklance/data/model/auth_user.dart';
 
 class UserState {}
 

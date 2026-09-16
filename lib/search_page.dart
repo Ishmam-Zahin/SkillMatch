@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_list_page_bloc.dart';
-import 'package:skillmatch/bloc/blocs/search_item_bloc.dart';
-import 'package:skillmatch/bloc/events/search_item_events.dart';
-import 'package:skillmatch/bloc/states/search_item_states.dart';
-import 'package:skillmatch/data/repository/home_page_repository.dart';
-import 'package:skillmatch/other_profile_page.dart';
+import 'package:worklance/bloc/blocs/job_list_page_bloc.dart';
+import 'package:worklance/bloc/blocs/search_item_bloc.dart';
+import 'package:worklance/bloc/events/search_item_events.dart';
+import 'package:worklance/bloc/states/search_item_states.dart';
+import 'package:worklance/data/repository/home_page_repository.dart';
+import 'package:worklance/other_profile_page.dart';
 import 'package:get/get.dart';
 
 class SearchPage extends StatefulWidget {
@@ -34,7 +34,7 @@ class _SearchPageState extends State<SearchPage> {
             Image.asset('assets/images/logo.png', height: 40),
             const SizedBox(width: 10),
             const Text(
-              'SkillMatch',
+              'Worklance',
               style: TextStyle(
                 fontFamily: 'Wet', // Replace with the login page font family
                 fontSize: 28,

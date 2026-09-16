@@ -1,6 +1,6 @@
-import 'package:skillmatch/data/model/auth_user.dart';
-import 'package:skillmatch/data/providers/auth_user_provider.dart';
-import 'package:skillmatch/data/providers/image_provider.dart';
+import 'package:worklance/data/model/auth_user.dart';
+import 'package:worklance/data/providers/auth_user_provider.dart';
+import 'package:worklance/data/providers/image_provider.dart';
 import 'package:image_picker/image_picker.dart';
 
 abstract class IAuthUserRepository {

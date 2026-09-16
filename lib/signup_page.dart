@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:skillmatch/bloc/blocs/image_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/events/image_events.dart';
-import 'package:skillmatch/bloc/events/user_event.dart';
-import 'package:skillmatch/bloc/states/image_states.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
+import 'package:worklance/bloc/blocs/image_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/events/image_events.dart';
+import 'package:worklance/bloc/events/user_event.dart';
+import 'package:worklance/bloc/states/image_states.dart';
+import 'package:worklance/bloc/states/user_state.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/widgets/skill_chip_selector.dart';
+import 'package:worklance/widgets/skill_chip_selector.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -46,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               const SizedBox(height: 60),
               const Text(
-                'SkillMatch',
+                'Worklance',
                 style: TextStyle(
                   fontFamily: 'Wet',
                   fontSize: 34,

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/auth_wrapper.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/data/providers/add_job_provider.dart';
-import 'package:skillmatch/data/providers/auth_user_provider.dart';
-import 'package:skillmatch/data/providers/delete_job_provider.dart';
-import 'package:skillmatch/data/providers/image_provider.dart';
-import 'package:skillmatch/data/providers/job_comments_provider.dart';
-import 'package:skillmatch/data/providers/job_detail_provider.dart';
-import 'package:skillmatch/data/providers/job_isActive_provider.dart';
-import 'package:skillmatch/data/providers/job_list_provider.dart';
-import 'package:skillmatch/data/providers/job_types_provider.dart';
-import 'package:skillmatch/data/providers/search_provider.dart';
-import 'package:skillmatch/data/providers/send_mail_provider.dart';
-import 'package:skillmatch/data/repository/auth_user_repository.dart';
-import 'package:skillmatch/data/repository/home_page_repository.dart';
+import 'package:worklance/auth_wrapper.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/data/providers/add_job_provider.dart';
+import 'package:worklance/data/providers/auth_user_provider.dart';
+import 'package:worklance/data/providers/delete_job_provider.dart';
+import 'package:worklance/data/providers/image_provider.dart';
+import 'package:worklance/data/providers/job_comments_provider.dart';
+import 'package:worklance/data/providers/job_detail_provider.dart';
+import 'package:worklance/data/providers/job_isActive_provider.dart';
+import 'package:worklance/data/providers/job_list_provider.dart';
+import 'package:worklance/data/providers/job_types_provider.dart';
+import 'package:worklance/data/providers/search_provider.dart';
+import 'package:worklance/data/providers/send_mail_provider.dart';
+import 'package:worklance/data/repository/auth_user_repository.dart';
+import 'package:worklance/data/repository/home_page_repository.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: GetMaterialApp(
-          title: 'SkillMatch',
+          title: 'Worklance',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             useMaterial3: true,

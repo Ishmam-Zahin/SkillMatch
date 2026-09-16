@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/blocs/home_page_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
-import 'package:skillmatch/home_page.dart';
-import 'package:skillmatch/login_page.dart';
+import 'package:worklance/bloc/blocs/home_page_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/states/user_state.dart';
+import 'package:worklance/home_page.dart';
+import 'package:worklance/login_page.dart';
 
 class AuthWrapper extends StatefulWidget {
   const AuthWrapper({super.key});

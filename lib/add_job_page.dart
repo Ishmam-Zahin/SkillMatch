@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/blocs/add_job_bloc.dart';
-import 'package:skillmatch/bloc/blocs/job_types_bloc.dart';
-import 'package:skillmatch/bloc/blocs/user_bloc.dart';
-import 'package:skillmatch/bloc/events/add_job_events.dart';
-import 'package:skillmatch/bloc/events/job_types_events.dart';
-import 'package:skillmatch/bloc/states/add_job_states.dart';
-import 'package:skillmatch/bloc/states/job_types_states.dart';
-import 'package:skillmatch/bloc/states/user_state.dart';
-import 'package:skillmatch/widgets/skill_chip_selector.dart';
+import 'package:worklance/bloc/blocs/add_job_bloc.dart';
+import 'package:worklance/bloc/blocs/job_types_bloc.dart';
+import 'package:worklance/bloc/blocs/user_bloc.dart';
+import 'package:worklance/bloc/events/add_job_events.dart';
+import 'package:worklance/bloc/events/job_types_events.dart';
+import 'package:worklance/bloc/states/add_job_states.dart';
+import 'package:worklance/bloc/states/job_types_states.dart';
+import 'package:worklance/bloc/states/user_state.dart';
+import 'package:worklance/widgets/skill_chip_selector.dart';
 
 class AddJobPage extends StatefulWidget {
   const AddJobPage({super.key});
@@ -47,7 +47,7 @@ class _AddJobPageState extends State<AddJobPage> {
             Image.asset('assets/images/logo.png', height: 40),
             const SizedBox(width: 10),
             const Text(
-              'SkillMatch',
+              'Worklance',
               style: TextStyle(
                 fontFamily: 'Wet', // Replace with the login page font family
                 fontSize: 28,

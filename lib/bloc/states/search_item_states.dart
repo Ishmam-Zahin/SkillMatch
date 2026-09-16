@@ -1,4 +1,4 @@
-import 'package:skillmatch/data/model/search_item_model.dart';
+import 'package:worklance/data/model/search_item_model.dart';
 
 class MySearchItemStates {}
 

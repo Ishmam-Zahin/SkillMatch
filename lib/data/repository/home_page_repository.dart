@@ -1,17 +1,17 @@
-import 'package:skillmatch/data/model/job_comments_model.dart';
-import 'package:skillmatch/data/model/job_detail_model.dart';
-import 'package:skillmatch/data/model/job_list_model.dart';
-import 'package:skillmatch/data/model/jobs_types_model.dart';
-import 'package:skillmatch/data/model/search_item_model.dart';
-import 'package:skillmatch/data/providers/add_job_provider.dart';
-import 'package:skillmatch/data/providers/delete_job_provider.dart';
-import 'package:skillmatch/data/providers/job_comments_provider.dart';
-import 'package:skillmatch/data/providers/job_detail_provider.dart';
-import 'package:skillmatch/data/providers/job_isActive_provider.dart';
-import 'package:skillmatch/data/providers/job_list_provider.dart';
-import 'package:skillmatch/data/providers/job_types_provider.dart';
-import 'package:skillmatch/data/providers/search_provider.dart';
-import 'package:skillmatch/data/providers/send_mail_provider.dart';
+import 'package:worklance/data/model/job_comments_model.dart';
+import 'package:worklance/data/model/job_detail_model.dart';
+import 'package:worklance/data/model/job_list_model.dart';
+import 'package:worklance/data/model/jobs_types_model.dart';
+import 'package:worklance/data/model/search_item_model.dart';
+import 'package:worklance/data/providers/add_job_provider.dart';
+import 'package:worklance/data/providers/delete_job_provider.dart';
+import 'package:worklance/data/providers/job_comments_provider.dart';
+import 'package:worklance/data/providers/job_detail_provider.dart';
+import 'package:worklance/data/providers/job_isActive_provider.dart';
+import 'package:worklance/data/providers/job_list_provider.dart';
+import 'package:worklance/data/providers/job_types_provider.dart';
+import 'package:worklance/data/providers/search_provider.dart';
+import 'package:worklance/data/providers/send_mail_provider.dart';
 
 abstract class IHomePageRepository {
   Future<MyJobListModel> getJobList(

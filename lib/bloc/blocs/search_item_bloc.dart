@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skillmatch/bloc/events/search_item_events.dart';
-import 'package:skillmatch/bloc/states/search_item_states.dart';
-import 'package:skillmatch/data/repository/home_page_repository.dart';
+import 'package:worklance/bloc/events/search_item_events.dart';
+import 'package:worklance/bloc/states/search_item_states.dart';
+import 'package:worklance/data/repository/home_page_repository.dart';
 
 class SearchItemBloc extends Bloc<MySearchItemEvents, MySearchItemStates> {
   final HomePageRepository homePageRepository;
   SearchItemBloc({required this.homePageRepository})
-      : super(SearchItemInitialState()) {
+    : super(SearchItemInitialState()) {
     on<SearchItemEvent>((event, emitter) async {
       emit(SearchItemLoadingState());
       try {
@@ -16,11 +16,7 @@ class SearchItemBloc extends Bloc<MySearchItemEvents, MySearchItemStates> {
           ),
         );
       } catch (e) {
-        emit(
-          SearchItemErrorState(
-            error: e.toString(),
-          ),
-        );
+        emit(SearchItemErrorState(error: e.toString()));
       }
     });
   }
